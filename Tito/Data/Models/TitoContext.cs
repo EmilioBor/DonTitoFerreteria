@@ -23,12 +23,8 @@ public partial class TitoContext : DbContext
 
             entity.Property(e => e.Id)
                 .UseIdentityAlwaysColumn()
-                .HasIdentityOptions(null, null, null, 9999L, null, null)
-                .HasColumnName("id");
-            entity.Property(e => e.Cantidad).HasColumnName("cantidad");
-            entity.Property(e => e.Nombre)
-                .IsRequired()
-                .HasColumnName("nombre");
+                .HasIdentityOptions(null, null, null, 9999L, null, null);
+            entity.Property(e => e.Nombre).IsRequired();
         });
 
         OnModelCreatingPartial(modelBuilder);
