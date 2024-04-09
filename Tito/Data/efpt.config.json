@@ -16,6 +16,14 @@
    "T4TemplatePath": null,
    "Tables": [
       {
+         "Name": "public.Marca",
+         "ObjectType": 0
+      },
+      {
+         "Name": "public.Modelo",
+         "ObjectType": 0
+      },
+      {
          "Name": "public.Producto",
          "ObjectType": 0
       }

@@ -13,10 +13,30 @@ public partial class TitoContext : DbContext
     {
     }
 
+    public virtual DbSet<Marca> Marca { get; set; }
+
+    public virtual DbSet<Modelo> Modelo { get; set; }
+
     public virtual DbSet<Producto> Producto { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+        modelBuilder.Entity<Marca>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("Marca_pkey");
+
+            entity.Property(e => e.Id).ValueGeneratedNever();
+            entity.Property(e => e.Nombre).IsRequired();
+        });
+
+        modelBuilder.Entity<Modelo>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("Modelo_pkey");
+
+            entity.Property(e => e.Id).ValueGeneratedNever();
+            entity.Property(e => e.Nombre).IsRequired();
+        });
+
         modelBuilder.Entity<Producto>(entity =>
         {
             entity.HasKey(e => e.Id).HasName("Producto_pkey");
@@ -24,7 +44,20 @@ public partial class TitoContext : DbContext
             entity.Property(e => e.Id)
                 .UseIdentityAlwaysColumn()
                 .HasIdentityOptions(null, null, null, 9999L, null, null);
+            entity.Property(e => e.Descripcion).IsRequired();
+            entity.Property(e => e.IdModelo).HasColumnName("idModelo");
             entity.Property(e => e.Nombre).IsRequired();
+            entity.Property(e => e.Precio).HasColumnType("money");
+
+            entity.HasOne(d => d.IdMarcaNavigation).WithMany(p => p.Producto)
+                .HasForeignKey(d => d.IdMarca)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("idMarca");
+
+            entity.HasOne(d => d.IdModeloNavigation).WithMany(p => p.Producto)
+                .HasForeignKey(d => d.IdModelo)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("idModelo");
         });
 
         OnModelCreatingPartial(modelBuilder);

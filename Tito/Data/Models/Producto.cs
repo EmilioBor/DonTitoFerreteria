@@ -11,5 +11,15 @@ public partial class Producto
 
     public string Nombre { get; set; }
 
-    public int Cantidad { get; set; }
+    public string Descripcion { get; set; }
+
+    public int IdMarca { get; set; }
+
+    public int IdModelo { get; set; }
+
+    public decimal Precio { get; set; }
+
+    public virtual Marca IdMarcaNavigation { get; set; }
+
+    public virtual Modelo IdModeloNavigation { get; set; }
 }
