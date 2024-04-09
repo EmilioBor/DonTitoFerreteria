@@ -4,6 +4,25 @@ using Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
+//-------------------------------------------------------------------
+var MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
+
+
+//CORS
+
+
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy(name: MyAllowSpecificOrigins,
+                      policy =>
+                      {
+                          policy.WithOrigins("http://localhost:3000", "http://localhost:3001/", "http://localhost:3000/")
+                            .AllowAnyHeader()  // Permite todos los encabezados
+                            .AllowAnyMethod();  // Permite todos los métodos HTTP
+                      });
+});
+
+
 // Add services to the container.
 
 builder.Services.AddControllers();
