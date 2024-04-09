@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\Tito.props" />
+</Project>
