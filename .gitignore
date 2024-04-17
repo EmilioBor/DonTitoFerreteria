@@ -3,6 +3,7 @@
 #launch.json folder
 .vscode/
 .vs/
+
 #Cache folder
 .alcache/
 #Symbols folder
