@@ -6,18 +6,10 @@ using System.Threading.Tasks;
 
 namespace Core.Response
 {
-    public class ProductoDtoOut
+    public class ModeloDtoOut
     {
         public int Id { get; set; }
 
         public string? Nombre { get; set; }
-
-        public string? Descripcion { get; set; }
-
-        public string? NombreMarca { get; set; }
-
-        public string? NombreModelo { get; set; }
-
-        public decimal Precio { get; set; }
     }
 }

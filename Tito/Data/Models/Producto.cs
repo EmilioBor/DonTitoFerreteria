@@ -19,7 +19,11 @@ public partial class Producto
 
     public decimal Precio { get; set; }
 
+    public float Peso { get; set; }
+
     public virtual Marca IdMarcaNavigation { get; set; }
 
     public virtual Modelo IdModeloNavigation { get; set; }
+
+    public virtual ICollection<PedidoDetalle> PedidoDetalle { get; set; } = new List<PedidoDetalle>();
 }

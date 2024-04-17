@@ -19,19 +19,25 @@ namespace Services
             {
                 Id = p.Id,
                 Nombre = p.Nombre,
-                Cantidad = p.Cantidad
+                Descripcion = p.Descripcion,
+                Precio = p.Precio,
+                NombreMarca = p.IdMarcaNavigation.Nombre,
+                NombreModelo = p.IdModeloNavigation.Nombre
             }).ToListAsync();
         }
         public async Task<ProductoDtoOut?> GetById(int id)
         {
             return await _context.Producto
                 .Where(p => p.Id == id)
-                .Select(n => new ProductoDtoOut
+                .Select(p => new ProductoDtoOut
                     {
-                        Id = n.Id,
-                        Nombre = n.Nombre,
-                        Cantidad = n.Cantidad
-                    }).SingleOrDefaultAsync();
+                    Id = p.Id,
+                    Nombre = p.Nombre,
+                    Descripcion = p.Descripcion,
+                    Precio = p.Precio,
+                    NombreMarca = p.IdMarcaNavigation.Nombre,
+                    NombreModelo = p.IdModeloNavigation.Nombre
+                }).SingleOrDefaultAsync();
         }
 
 
@@ -41,7 +47,10 @@ namespace Services
 
             
             producto.Nombre = productoDto.Nombre;
-            producto.Cantidad = productoDto.Cantidad;
+            producto.Descripcion = productoDto.Descripcion;
+            producto.Precio = productoDto.Precio;
+            producto.IdMarca = productoDto.IdMarca;
+            producto.IdModelo = productoDto.IdModelo;
 
             _context.Add(producto);
             await _context.SaveChangesAsync();
@@ -58,7 +67,10 @@ namespace Services
             {
                 //productoUp.Id = producto.Id;
                 productoUp.Nombre = producto.Nombre;
-                productoUp.Cantidad = producto.Cantidad;
+                productoUp.Descripcion = producto.Descripcion;
+                productoUp.Precio = producto.Precio;
+                productoUp.IdModelo = producto.IdModelo;
+                productoUp.IdMarca = producto.IdMarca;
 
                 await _context.SaveChangesAsync();
             }

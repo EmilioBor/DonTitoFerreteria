@@ -34,6 +34,7 @@ builder.Services.AddDbContext<TitoContext>(options =>
 options.UseNpgsql(builder.Configuration.GetConnectionString("Connection")));
 
 builder.Services.AddScoped<Services.IProductoService, Services.ProductoService>();
+builder.Services.AddScoped<Services.IModeloService, Services.ModeloService>();
 
 var app = builder.Build();
 

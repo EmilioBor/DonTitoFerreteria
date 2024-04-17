@@ -17,6 +17,10 @@ public partial class TitoContext : DbContext
 
     public virtual DbSet<Modelo> Modelo { get; set; }
 
+    public virtual DbSet<Pedido> Pedido { get; set; }
+
+    public virtual DbSet<PedidoDetalle> PedidoDetalle { get; set; }
+
     public virtual DbSet<Producto> Producto { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -37,6 +41,38 @@ public partial class TitoContext : DbContext
             entity.Property(e => e.Nombre).IsRequired();
         });
 
+        modelBuilder.Entity<Pedido>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("Pedido_pkey");
+
+            entity.Property(e => e.Id)
+                .UseIdentityAlwaysColumn()
+                .HasIdentityOptions(null, null, null, 99999L, null, null)
+                .HasColumnName("id");
+        });
+
+        modelBuilder.Entity<PedidoDetalle>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("PedidoDetalle_pkey");
+
+            entity.Property(e => e.Id)
+                .UseIdentityAlwaysColumn()
+                .HasIdentityOptions(null, null, null, 999999L, null, null)
+                .HasColumnName("id");
+            entity.Property(e => e.IdPedido).HasColumnName("idPedido");
+            entity.Property(e => e.IdProducto).HasColumnName("idProducto");
+
+            entity.HasOne(d => d.IdPedidoNavigation).WithMany(p => p.PedidoDetalle)
+                .HasForeignKey(d => d.IdPedido)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("idPedido");
+
+            entity.HasOne(d => d.IdProductoNavigation).WithMany(p => p.PedidoDetalle)
+                .HasForeignKey(d => d.IdProducto)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("idProducto");
+        });
+
         modelBuilder.Entity<Producto>(entity =>
         {
             entity.HasKey(e => e.Id).HasName("Producto_pkey");
@@ -47,7 +83,6 @@ public partial class TitoContext : DbContext
             entity.Property(e => e.Descripcion).IsRequired();
             entity.Property(e => e.IdModelo).HasColumnName("idModelo");
             entity.Property(e => e.Nombre).IsRequired();
-            entity.Property(e => e.Precio).HasColumnType("money");
 
             entity.HasOne(d => d.IdMarcaNavigation).WithMany(p => p.Producto)
                 .HasForeignKey(d => d.IdMarca)
