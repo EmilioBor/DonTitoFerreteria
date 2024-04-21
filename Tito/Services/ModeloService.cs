@@ -24,7 +24,14 @@ namespace Services
         }
         public async Task<ModeloDtoOut?> GetById(int id)
         {
-            return await _context.Modelo.FirstAsync(id);
+            return await _context.Modelo
+                .Where(m => m.Id == id)
+                .Select(m => new ModeloDtoOut
+            {
+                Id = m.Id,
+                Nombre = m.Nombre
+            }).SingleOrDefaultAsync();
         }
+
     }
 }

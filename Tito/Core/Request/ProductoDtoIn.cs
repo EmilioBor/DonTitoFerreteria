@@ -13,5 +13,6 @@
         public int IdModelo { get; set; }
 
         public decimal Precio { get; set; }
+        public float Peso { get; set; }
     }
 }

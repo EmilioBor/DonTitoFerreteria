@@ -1,4 +1,6 @@
-﻿using Core.Response;
+﻿using Core.Request;
+using Core.Response;
+using Data.Models;
 using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
 using Services;
@@ -20,11 +22,14 @@ namespace Tito.Controllers
         [HttpGet("Buscando/{id}")]
         public async Task<ActionResult<ModeloDtoOut?>> GetById(int id)
         {
-            var modelo = await _service.GetById(id);
-            
-                return modelo;
-            
-            
+            var modeloId = await _service.GetById(id);
+            return modeloId;
+        }
+        [HttpPost("AgregandoModelo")]
+        public async Task<IActionResult> PostModelo(ModeloDtoIn modeloDto)
+        {
+            var nuevoModelo = await _service.PostModelo(modeloDto);
+            return CreatedAtAction(nameof(GetById), new {id = nuevoModelo.id },nuevoModelo);
         }
     }
 }

@@ -19,5 +19,6 @@ namespace Core.Response
         public string? NombreModelo { get; set; }
 
         public decimal Precio { get; set; }
+        public float Peso { get; set; }
     }
 }

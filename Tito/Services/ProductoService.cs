@@ -21,6 +21,7 @@ namespace Services
                 Nombre = p.Nombre,
                 Descripcion = p.Descripcion,
                 Precio = p.Precio,
+                Peso = p.Peso,
                 NombreMarca = p.IdMarcaNavigation.Nombre,
                 NombreModelo = p.IdModeloNavigation.Nombre
             }).ToListAsync();
@@ -35,6 +36,7 @@ namespace Services
                     Nombre = p.Nombre,
                     Descripcion = p.Descripcion,
                     Precio = p.Precio,
+                    Peso = p.Peso,
                     NombreMarca = p.IdMarcaNavigation.Nombre,
                     NombreModelo = p.IdModeloNavigation.Nombre
                 }).SingleOrDefaultAsync();
@@ -49,6 +51,7 @@ namespace Services
             producto.Nombre = productoDto.Nombre;
             producto.Descripcion = productoDto.Descripcion;
             producto.Precio = productoDto.Precio;
+            producto.Peso = productoDto.Peso;
             producto.IdMarca = productoDto.IdMarca;
             producto.IdModelo = productoDto.IdModelo;
 
@@ -69,6 +72,7 @@ namespace Services
                 productoUp.Nombre = producto.Nombre;
                 productoUp.Descripcion = producto.Descripcion;
                 productoUp.Precio = producto.Precio;
+                productoUp.Peso= producto.Peso;
                 productoUp.IdModelo = producto.IdModelo;
                 productoUp.IdMarca = producto.IdMarca;
 
