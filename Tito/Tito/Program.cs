@@ -1,6 +1,8 @@
+
 using Data.Models;
 using Microsoft.EntityFrameworkCore;
-using Services;
+using Services.Interface;
+using Services.Service;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -33,8 +35,8 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<TitoContext>(options =>
 options.UseNpgsql(builder.Configuration.GetConnectionString("Connection")));
 
-builder.Services.AddScoped<Services.IProductoService, Services.ProductoService>();
-builder.Services.AddScoped<Services.IModeloService, Services.ModeloService>();
+builder.Services.AddScoped<IProductoService, ProductoService>();
+builder.Services.AddScoped<IModeloService, ModeloService>();
 
 var app = builder.Build();
 

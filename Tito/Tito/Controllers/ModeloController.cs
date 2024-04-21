@@ -1,9 +1,9 @@
 ﻿using Core.Request;
 using Core.Response;
-using Data.Models;
+using System.Data;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Services;
+using Services.Interface;
 
 namespace Tito.Controllers
 {
