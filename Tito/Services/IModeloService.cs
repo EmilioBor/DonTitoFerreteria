@@ -1,4 +1,6 @@
-﻿using Core.Response;
+﻿using Core.Request;
+using Core.Response;
+using Data.Models;
 
 namespace Services
 {
@@ -6,5 +8,7 @@ namespace Services
     {
         Task<IEnumerable<ModeloDtoOut>> GetModelo();
         Task<ModeloDtoOut?> GetById(int id);
+        Task<Modelo> PostModelo(ModeloDtoIn modeloDto);
+
     }
 }

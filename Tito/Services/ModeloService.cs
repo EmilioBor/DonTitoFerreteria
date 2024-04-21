@@ -1,4 +1,5 @@
-﻿using Core.Response;
+﻿using Core.Request;
+using Core.Response;
 using Data.Models;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -32,6 +33,15 @@ namespace Services
                 Nombre = m.Nombre
             }).SingleOrDefaultAsync();
         }
+        public async Task<Modelo> PostModelo(ModeloDtoIn modeloDto)
+        {
+            var modelo = new Modelo();
 
+            modelo.Nombre = modeloDto.Nombre;
+
+            _context.Add(modelo);
+            await _context.SaveChangesAsync();
+            return modelo;
+        }
     }
 }

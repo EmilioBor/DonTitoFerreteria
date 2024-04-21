@@ -1,13 +1,15 @@
 ﻿using Core.Request;
 using Core.Response;
 using Data.Models;
-using Microsoft.AspNetCore.Http.HttpResults;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Services;
 
 namespace Tito.Controllers
 {
-    public class ModeloController
+    [Route("api/[controller]")]
+    [ApiController]
+    public class ModeloController : ControllerBase
     {
         public readonly IModeloService _service;
         public ModeloController(IModeloService service)
@@ -29,7 +31,9 @@ namespace Tito.Controllers
         public async Task<IActionResult> PostModelo(ModeloDtoIn modeloDto)
         {
             var nuevoModelo = await _service.PostModelo(modeloDto);
-            return CreatedAtAction(nameof(GetById), new {id = nuevoModelo.id },nuevoModelo);
+
+             return CreatedAtAction(nameof(GetById), new { id = nuevoModelo.Id }, nuevoModelo);
         }
+
     }
 }
