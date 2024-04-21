@@ -9,6 +9,7 @@ namespace Services
         Task<IEnumerable<ModeloDtoOut>> GetModelo();
         Task<ModeloDtoOut?> GetById(int id);
         Task<Modelo> PostModelo(ModeloDtoIn modeloDto);
-
+        Task PutModelo(int id, ModeloDtoIn modeloDto);
+        Task DeleteModelo(int id);
     }
 }

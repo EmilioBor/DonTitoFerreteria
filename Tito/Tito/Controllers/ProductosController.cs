@@ -58,14 +58,14 @@ namespace Tito.Controllers
         [HttpDelete("EliminarProducto/{id}")]
         public async Task<IActionResult> DeleteProducto(int id)
         {
-            var productoDto = await _service.GetById(id);
-            if (productoDto is null)
+            var producto = await _service.GetById(id);
+            if (producto is null)
             {
                 return NotFound();
             }
-            if ( productoDto.Id != id)
+            if ( producto.Id != id)
             {
-                return BadRequest(new { message = $"El ID = {id} de la URL no coincide con el ID ({productoDto.Id} del cuerpo de la solicitud)" });
+                return BadRequest(new { message = $"El ID = {id} de la URL no coincide con el ID ({producto.Id} del cuerpo de la solicitud)" });
             }
             var productoUpdate = _service.GetById(id);
             if (productoUpdate is not null)

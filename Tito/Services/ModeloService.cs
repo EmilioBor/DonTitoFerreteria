@@ -43,5 +43,22 @@ namespace Services
             await _context.SaveChangesAsync();
             return modelo;
         }
+        public async Task PutModelo(int id, ModeloDtoIn modeloDto)
+        {
+            var modeloUp = await GetById(id);
+            if(modeloUp is not null)
+            {
+                modeloUp.Nombre = modeloDto.Nombre;
+                await _context.SaveChangesAsync();
+            }
+        }
+        public async Task DeleteModelo(int id)
+        {
+            var modelo = await GetById(id);
+            if(modelo is not null)
+            {
+                _context.Remove(modelo);
+            }
+        }
     }
 }
