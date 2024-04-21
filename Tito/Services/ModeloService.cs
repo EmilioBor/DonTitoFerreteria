@@ -45,16 +45,20 @@ namespace Services
         }
         public async Task PutModelo(int id, ModeloDtoIn modeloDto)
         {
-            var modeloUp = await GetById(id);
-            if(modeloUp is not null)
+            var modeloUp = await GetModelo(id);
+            if(modeloUp != null)
             {
                 modeloUp.Nombre = modeloDto.Nombre;
                 await _context.SaveChangesAsync();
             }
         }
+        public async Task<Modelo?> GetModelo(int id)
+        {
+            return await _context.Modelo.FindAsync(id);
+        } 
         public async Task DeleteModelo(int id)
         {
-            var modelo = await GetById(id);
+            var modelo = await GetModelo(id);
             if(modelo is not null)
             {
                 _context.Remove(modelo);

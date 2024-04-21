@@ -11,16 +11,3 @@ C:\Proyecto Nacho\Backend\Tito\Data\obj\Debug\net8.0\Data.dll
 C:\Proyecto Nacho\Backend\Tito\Data\obj\Debug\net8.0\refint\Data.dll
 C:\Proyecto Nacho\Backend\Tito\Data\obj\Debug\net8.0\Data.pdb
 C:\Proyecto Nacho\Backend\Tito\Data\obj\Debug\net8.0\ref\Data.dll
-D:\Nachito\Tito\Data\bin\Debug\net8.0\Data.deps.json
-D:\Nachito\Tito\Data\bin\Debug\net8.0\Data.dll
-D:\Nachito\Tito\Data\bin\Debug\net8.0\Data.pdb
-D:\Nachito\Tito\Data\obj\Debug\net8.0\Data.csproj.AssemblyReference.cache
-D:\Nachito\Tito\Data\obj\Debug\net8.0\Data.GeneratedMSBuildEditorConfig.editorconfig
-D:\Nachito\Tito\Data\obj\Debug\net8.0\Data.AssemblyInfoInputs.cache
-D:\Nachito\Tito\Data\obj\Debug\net8.0\Data.AssemblyInfo.cs
-D:\Nachito\Tito\Data\obj\Debug\net8.0\Data.csproj.CoreCompileInputs.cache
-D:\Nachito\Tito\Data\obj\Debug\net8.0\Data.sourcelink.json
-D:\Nachito\Tito\Data\obj\Debug\net8.0\Data.dll
-D:\Nachito\Tito\Data\obj\Debug\net8.0\refint\Data.dll
-D:\Nachito\Tito\Data\obj\Debug\net8.0\Data.pdb
-D:\Nachito\Tito\Data\obj\Debug\net8.0\ref\Data.dll
