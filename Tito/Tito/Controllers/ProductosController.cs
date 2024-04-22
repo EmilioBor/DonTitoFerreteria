@@ -35,26 +35,36 @@ namespace Tito.Controllers
              var newProducto= await _service.PostProducto(productoDtoIn);
             return CreatedAtAction(nameof(GetUnicoProducto), new { id = newProducto.Id}, newProducto);
         }
-        [HttpPut("Modificando/{id}")]
+
+
+        [HttpPut("ModificandoProducto/{id}")]
         public async Task<IActionResult> PutProducto(int id, ProductoDtoIn productoDto)
         {
             if (id != productoDto.Id)
             {
                 return BadRequest(new { message = $"El ID = {id} de la URL no coincide con el ID ({productoDto.Id} del cuerpo de la solicitud)" });
             }
-                var productoUpdate = _service.GetById(id);
-                if (productoUpdate is not null)
-                {
-                    await _service.PutProducto(id, productoDto);
-                    return NoContent();
-                    //new { message = "El objeto fue modificado" }
-                }
-                else
+            var productoUpdate = await _service.GetById(id);
+            if (productoUpdate == null)
             {
                 return NotFound(new { message = "El objeto NO fue modificado" });
+
+            }
+            if (productoUpdate is not null)
+            {
+                await _service.PutProducto(id, productoDto);
+                return NoContent();
+                //new { message = "El objeto fue modificado" }
+            }
+            else
+            {
+                return BadRequest();
             }
             
         }
+
+
+
         [HttpDelete("EliminarProducto/{id}")]
         public async Task<IActionResult> DeleteProducto(int id)
         {
