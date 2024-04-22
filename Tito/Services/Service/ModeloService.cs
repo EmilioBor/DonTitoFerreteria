@@ -47,7 +47,11 @@ namespace Services.Service
         public async Task PutModelo(int id, ModeloDtoIn modeloDto)
         {
             var modeloUp = await GetModelo(id);
+<<<<<<< HEAD:Tito/Services/Service/ModeloService.cs
             if (modeloUp != null)
+=======
+            if(modeloUp != null)
+>>>>>>> d54adbb1bb013c877b17c0ec33ca5e762efa9ab1:Tito/Services/ModeloService.cs
             {
                 modeloUp.Nombre = modeloDto.Nombre;
                 await _context.SaveChangesAsync();
@@ -56,11 +60,19 @@ namespace Services.Service
         public async Task<Modelo?> GetModelo(int id)
         {
             return await _context.Modelo.FindAsync(id);
+<<<<<<< HEAD:Tito/Services/Service/ModeloService.cs
         }
         public async Task DeleteModelo(int id)
         {
             var modelo = await GetModelo(id);
             if (modelo is not null)
+=======
+        } 
+        public async Task DeleteModelo(int id)
+        {
+            var modelo = await GetModelo(id);
+            if(modelo is not null)
+>>>>>>> d54adbb1bb013c877b17c0ec33ca5e762efa9ab1:Tito/Services/ModeloService.cs
             {
                 _context.Remove(modelo);
             }
