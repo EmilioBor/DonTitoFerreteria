@@ -60,7 +60,7 @@ namespace Tito.Controllers
         [HttpDelete("EliminandoModelo/{id}")]
         public async Task<IActionResult> DeleteModelo(int id)
         {
-            var modelo = await _service.GetById(id);
+            var modelo = await _service.GetById(id); 
             if(modelo == null)
             {
                 NotFound();
