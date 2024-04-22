@@ -38,6 +38,7 @@ options.UseNpgsql(builder.Configuration.GetConnectionString("Connection")));
 builder.Services.AddScoped<IProductoService, ProductoService>();
 builder.Services.AddScoped<IModeloService, ModeloService>();
 builder.Services.AddScoped<IMarcaService, MarcaService>();
+builder.Services.AddScoped<IPedidoService, PedidoService>();
 
 var app = builder.Build();
 
