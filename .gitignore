@@ -5,6 +5,8 @@
 .vs/
 *.bin/
 *.obj/
+*.bin/
+*./Tito/Tito/bin/
 #Cache folder
 .alcache/
 #Symbols folder
