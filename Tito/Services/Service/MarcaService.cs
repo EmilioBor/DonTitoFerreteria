@@ -66,8 +66,8 @@ namespace Services.Service
         }
         public async Task DeleteMarca(int id)
         {
-            var MarcaDe = await GetId(id);
-            if (MarcaDe != null)
+            var MarcaDe =  await GetId(id);
+            if (MarcaDe is not null)
             {
                 _context.Marca.Remove(MarcaDe);
                 await _context.SaveChangesAsync();

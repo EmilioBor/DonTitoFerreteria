@@ -1,6 +1,6 @@
 ﻿using Core.Request;
 using Core.Response;
-
+using Data.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Services.Interface;
@@ -25,27 +25,29 @@ namespace Tito.Controllers
         [HttpGet("Buscando/{id}")]
         public async Task<ActionResult<MarcaDtoOut?>> GetUnicoMarca(int id)
         {
-            var productoId = await _service.GetById(id);
-            return (productoId);
+            var marca = await _service.GetById(id);
+            return (marca);
         }
 
         [HttpPost("AgregandoMarca")]
-        public async Task<IActionResult> PostMarca(MarcaDtoIn productoDtoIn)
+        public async Task<IActionResult> PostMarca(MarcaDtoIn marcaDtoIn)
         {
-            var newMarca = await _service.PostMarca(productoDtoIn);
+            var newMarca = await _service.PostMarca(marcaDtoIn);
             return CreatedAtAction(nameof(GetUnicoMarca), new { id = newMarca.Id }, newMarca);
         }
+
+
         [HttpPut("Modificando/{id}")]
-        public async Task<IActionResult> PutMarca(int id, MarcaDtoIn productoDto)
+        public async Task<IActionResult> PutMarca(int id, MarcaDtoIn marcaDtoIn)
         {
-            if (id != productoDto.Id)
+            if (id != marcaDtoIn.Id)
             {
-                return BadRequest(new { message = $"El ID = {id} de la URL no coincide con el ID ({productoDto.Id} del cuerpo de la solicitud)" });
+                return BadRequest(new { message = $"El ID = {id} de la URL no coincide con el ID ({marcaDtoIn.Id} del cuerpo de la solicitud)" });
             }
-            var productoUpdate = _service.GetById(id);
-            if (productoUpdate is not null)
+            var marcaUp = await GetUnicoMarca(id);
+            if (marcaUp is not null)
             {
-                await _service.PutMarca(id, productoDto);
+                await _service.PutMarca(id, marcaDtoIn);
                 return NoContent();
                 //new { message = "El objeto fue modificado" }
             }
@@ -58,17 +60,17 @@ namespace Tito.Controllers
         [HttpDelete("EliminarMarca/{id}")]
         public async Task<IActionResult> DeleteMarca(int id)
         {
-            var marca = await _service.GetById(id);
-            if (marca is null)
+            var marcaD = await _service.GetById(id);
+            if (marcaD is null)
             {
                 return NotFound();
             }
-            if (marca.Id != id)
+            if (marcaD.Id != id)
             {
-                return BadRequest(new { message = $"El ID = {id} de la URL no coincide con el ID ({marca.Id} del cuerpo de la solicitud)" });
+                return BadRequest(new { message = $"El ID = {id} de la URL no coincide con el ID ({marcaD.Id} del cuerpo de la solicitud)" });
             }
-            var productoUpdate = _service.GetById(id);
-            if (productoUpdate is not null)
+            var marca = _service.GetById(id);
+            if (marca is not null)
             {
                 await _service.DeleteMarca(id);
                 return NoContent();
