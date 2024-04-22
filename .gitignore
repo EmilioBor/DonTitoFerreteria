@@ -3,8 +3,8 @@
 #launch.json folder
 .vscode/
 .vs/
-*bin/
-*obj/
+*.bin/
+*.obj/
 #Cache folder
 .alcache/
 #Symbols folder
@@ -23,3 +23,5 @@ rad.json
 *.flf
 #Test results file
 TestResults.xml
+*.obj/
+*.bin/
