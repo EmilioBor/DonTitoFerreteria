@@ -20,7 +20,10 @@ builder.Services.AddCors(options =>
                       {
                           policy.WithOrigins("http://localhost:3000", "http://localhost:3001/", "http://localhost:3000/", "http://localhost:3000")
                             .AllowAnyHeader()  // Permite todos los encabezados
-                            .AllowAnyMethod();  // Permite todos los métodos HTTP
+                            .AllowAnyMethod()  // Permite todos los métodos HTTP
+                            .AllowCredentials(); //se utiliza para configurar el servidor para permitir que las credenciales de autenticación se incluyan en las solicitudes CORS
+                        
+
                       });
 });
 
@@ -50,6 +53,9 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+//agregar
+app.UseCors(MyAllowSpecificOrigins);
 
 app.UseAuthorization();
 
