@@ -11,7 +11,8 @@ var MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
 
 
 //CORS
-
+//El intercambio de recursos de origen cruzado o CORS es un mecanismo que permite que se puedan solicitar recursos restringidos
+//en una página web desde un dominio diferente del dominio que sirvió el primer recurso
 
 builder.Services.AddCors(options =>
 {
