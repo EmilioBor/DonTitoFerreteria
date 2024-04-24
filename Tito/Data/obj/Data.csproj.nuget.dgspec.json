@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Nachito\\Tito\\Data\\Data.csproj": {}
+    "C:\\Proyecto Nacho\\Backend\\Tito\\Data\\Data.csproj": {}
   },
   "projects": {
-    "D:\\Nachito\\Tito\\Data\\Data.csproj": {
+    "C:\\Proyecto Nacho\\Backend\\Tito\\Data\\Data.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Nachito\\Tito\\Data\\Data.csproj",
+        "projectUniqueName": "C:\\Proyecto Nacho\\Backend\\Tito\\Data\\Data.csproj",
         "projectName": "Data",
-        "projectPath": "D:\\Nachito\\Tito\\Data\\Data.csproj",
+        "projectPath": "C:\\Proyecto Nacho\\Backend\\Tito\\Data\\Data.csproj",
         "packagesPath": "C:\\Users\\emili\\.nuget\\packages\\",
-        "outputPath": "D:\\Nachito\\Tito\\Data\\obj\\",
+        "outputPath": "C:\\Proyecto Nacho\\Backend\\Tito\\Data\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
           "C:\\Users\\emili\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -22,6 +26,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
