@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "cQsCZLrDipKVuvwj/4PbfxUDeGzbyQxtePqRXzB2POpXq2E6bhVilznrFjN0pL/Rdmi0Pe4CSuegkA4QA507Og==",
+  "dgSpecHash": "JEw0pZH4XdW8+Nf5ayTjj2oWEuN0cbbWqq772Gj1tgU7FFx0nvTmJoWORT8Ew2Lnb8QsbZ3L5DLEmYF+N9ZfYQ==",
   "success": true,
-  "projectFilePath": "C:\\Proyecto Nacho\\Backend\\Tito\\Data\\Data.csproj",
+  "projectFilePath": "D:\\Nachito\\Tito\\Data\\Data.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\emili\\.nuget\\packages\\microsoft.entityframeworkcore\\8.0.0\\microsoft.entityframeworkcore.8.0.0.nupkg.sha512",
     "C:\\Users\\emili\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\8.0.0\\microsoft.entityframeworkcore.abstractions.8.0.0.nupkg.sha512",

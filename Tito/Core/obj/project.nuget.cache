@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "zGorgZWZiozq2fM9UFMUhh73wrNT9SrOctGBKoK3wTGYz2mPhLhJ76IooBcnK3zT+lcYRKsUH+6SpYi/r0wfJw==",
+  "dgSpecHash": "BtS2a6fcCxHvM5fn/nWlFuSukLWTHTbAxzxFZapH8s7Ff1/Qv2Q38eVXBqjIgXMYbdxggUwasP3EUyB/vUKLwA==",
   "success": true,
-  "projectFilePath": "C:\\Proyecto Nacho\\Backend\\Tito\\Core\\Core.csproj",
+  "projectFilePath": "D:\\Nachito\\Tito\\Core\\Core.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }
